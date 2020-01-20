@@ -1,0 +1,14 @@
+{
+  "name": "besu-clique-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ppoliani/besu-clique-config.git",
+  "author": "ppoliani <ppoliani@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "ethereumjs-util": "^6.2.0",
+    "ethereumjs-wallet": "^0.6.3",
+    "ethers": "^4.0.43"
+  }
+}
