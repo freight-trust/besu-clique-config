@@ -8,7 +8,6 @@
   "private": false,
   "dependencies": {
     "ethereumjs-util": "^6.2.0",
-    "ethereumjs-wallet": "^0.6.3",
-    "ethers": "^4.0.43"
+    "yargs": "^15.1.0"
   }
 }
