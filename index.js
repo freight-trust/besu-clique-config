@@ -38,8 +38,8 @@ const generateKeyPair = () => {
 
   return {
     privKey, 
-    pubKey: prefix(pubKey.toString('hex')),
-    nodeAddress: prefix(publicToAddress(pubKey).toString('hex'))
+    pubKey: pubKey.toString('hex'),
+    nodeAddress: publicToAddress(pubKey).toString('hex')
   }
 }
 
@@ -52,18 +52,18 @@ const loadConfig = async () => {
 
 const createFileContent = data => new Uint8Array(Buffer.from(data));
 
-const getNodeDir = nodeAddress => `${__dirname}/${to}/${nodeAddress}`
+const getNodeDir = nodeAddress => `${__dirname}/${to}/${prefix(nodeAddress)}`
 
 const saveKeyPair = async ({privKey, pubKey, nodeAddress}) => {
   const nodeDir = getNodeDir(nodeAddress);
 
   await mkdirAsync(nodeDir);
   await writeFileAsync(`${nodeDir}/${privateKeyFileName}`, createFileContent(privKey));
-  await writeFileAsync(`${nodeDir}/key.pub`, createFileContent(pubKey.toString('hex')));
+  await writeFileAsync(`${nodeDir}/key.pub`, createFileContent(prefix(pubKey)));
 }
 
 const saveGenesisFile = async genesis => {
-  genesis.extraData.replace('<signers>', getSignerAddresses());
+  genesis.extraData = genesis.extraData.replace('<signers>', getSignerAddresses());
   await writeFileAsync(`${__dirname}/${to}/genesis.json`, JSON.stringify(genesis, null, 4));
 }
 
