@@ -1,5 +1,5 @@
-const {createECDH, ECDH} = require('crypto');
-const {pubToAddress, privateToPublic} = require('ethereumjs-util');
+const {createECDH} = require('crypto');
+const {privateToPublic} = require('ethereumjs-util');
 
 const generateKeyPair = () => {
   const ecdh = createECDH('secp256k1');
