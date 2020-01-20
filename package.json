@@ -1,7 +1,10 @@
 {
   "name": "besu-clique-config",
-  "version": "1.0.1",
-  "main": "index.js",
+  "version": "1.0.2",
+  "main": "./lib/index.js",
+  "bin": {
+    "besu-clique-config": "./bin/index.js"
+  },
   "repository": "git@github.com:ppoliani/besu-clique-config.git",
   "author": "ppoliani <ppoliani@gmail.com>",
   "license": "MIT",
